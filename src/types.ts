@@ -2,7 +2,8 @@ import {
     SlashCommandBuilder, 
     type SlashCommandOptionsOnlyBuilder,
     type SlashCommandSubcommandsOnlyBuilder,
-    type ChatInputCommandInteraction 
+    type ChatInputCommandInteraction,
+    type ClientEvents
 } from 'discord.js';
 import { Collection } from 'discord.js';
 /**
@@ -21,6 +22,11 @@ export interface BotCommand {
     execute: (interaction: ChatInputCommandInteraction) => Promise<void>;
 }
 
+export interface BotEvent {
+    name: keyof ClientEvents;
+    once?: boolean;
+    execute: (...args: any[]) => void;
+}
 /**
  * MODULE AUGMENTATION:
  * Aquí le "avisamos" a TypeScript que, en este proyecto, 
@@ -31,3 +37,4 @@ declare module 'discord.js' {
         commands: Collection<string, BotCommand>;
     }
 }
+

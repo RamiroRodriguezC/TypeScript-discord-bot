@@ -8,7 +8,7 @@
     "types": ["node"],
     
     /* Organización de archivos */
-    //"rootDir": "./src",
+    "rootDir": "./src",
     "outDir": "./dist",
     "removeComments": true,
 
@@ -21,6 +21,6 @@
     "noUncheckedIndexedAccess": true,
     "sourceMap": true,
   },
-  "include": ["src/**/*",  "src/index.js", "src/config.ts"],
+  "include": ["src/**/*",  "src/index.js", "src/config.ts", "src/index.ts"],
   "exclude": ["node_modules"]
 }
