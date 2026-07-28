@@ -16,7 +16,11 @@ const __dirname = dirname(__filename);
 
 const { TOKEN } = CONFIG;
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({ intents: [
+	GatewayIntentBits.Guilds,
+	GatewayIntentBits.GuildMessages,
+	GatewayIntentBits.MessageContent,
+] });
 
 client.commands = new Collection<string, BotCommand>();
 const foldersPath = join(__dirname, 'commands');

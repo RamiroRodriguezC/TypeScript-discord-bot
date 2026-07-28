@@ -8,7 +8,9 @@ export const ping: BotCommand = {
         .setDescription('Replies with Pong!'),
 
     async execute(interaction: ChatInputCommandInteraction) {
-        await interaction.reply('Pong!');
+        const sent = await interaction.reply({ content: 'Pinging...', fetchReply: true });
+        const latency = sent.createdTimestamp - interaction.createdTimestamp;
+        await interaction.editReply(`Pong! ${latency}ms`);
     }
 };
 
