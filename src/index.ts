@@ -35,7 +35,13 @@ for (const folder of commandFolders) {
 
 	for (const file of commandFiles) {
 		const filePath = join(commandsPath, file);
-		const commandModule = await import(pathToFileURL(filePath).href);
+		let commandModule: Record<string, BotCommand>;
+		try {
+			commandModule = await import(pathToFileURL(filePath).href) as Record<string, BotCommand>;
+		} catch (err) {
+			console.error(`[ERROR] No se pudo cargar ${filePath}:`, err);
+			continue;
+		}
 		const commands: BotCommand[] = Object.values(commandModule);
 
 		for (const command of commands) {

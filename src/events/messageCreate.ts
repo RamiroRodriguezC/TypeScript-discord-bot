@@ -1,6 +1,6 @@
 import { Events, type Message } from 'discord.js';
 import { type BotEvent } from '../types.js';
-import { buildChannelsList } from '../commands/miscellaneous/channels.js';
+import { buildChannelsList } from '../commands/utility/channels.js';
 
 const PREFIX = 'dark!';
 

@@ -15,7 +15,7 @@ const __dirname = dirname(__filename);
 // Array para acumular los comandos a registrar
 const commandsData: object[] = [];
 
-const foldersPath = join(__dirname, 'src', 'commands');
+const foldersPath = join(__dirname, 'commands');
 
 // Solo procesa carpetas, ignora archivos sueltos
 const commandFolders = fs.readdirSync(foldersPath).filter(folder =>
